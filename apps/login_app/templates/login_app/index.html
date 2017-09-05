@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% load static %}
+    <style>
+      html {
+        background-image: url('{% static "login_app/images/xinxinbackground.gif"%}');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+    </style>
+    {% load staticfiles %}
+      <!-- The line above tells Django to be ready to listen for static files -->
+    <link rel="stylesheet" href="{% static 'login_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        var documentEl = $(document),
+            fadeElem = $("#landingwrapper");
+        documentEl.on('scroll', function(){
+          var currScrollPos = documentEl.scrollTop();
+
+          fadeElem.each(function(){
+            var $this = $(this),
+              elemOffsetTop = $this.offset().top;
+            if(currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/200);
+          });
+        });
+      });
+      $(function(){
+        var documentEl = $(document),
+            fadeElem = $("#video");
+        documentEl.on('scroll', function(){
+          var currScrollPos = documentEl.scrollTop();
+
+          fadeElem.each(function(){
+            var $this = $(this),
+              elemOffsetTop = $this.offset().top;
+            if(currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/400);
+          });
+        });
+      });
+    </script>
+    <title>Xinxin</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="landingwrapper"><h1 id="title">X I N X I N</h1>
+        <div id="socialmediamenu">
+          <a href="https://xinxin.bandcamp.com/"><img src="{% static 'login_app/images/drawnbandcamp.png' %}" class="socialmediaasset" alt="bandcamp"></a>
+          <a href="https://soundcloud.com/xinxinplanet"><img src="{% static 'login_app/images/drawnsoundcloud.png' %}" class="socialmediaasset" alt="soundcloud"></a>
+          <a href="https://www.instagram.com/xinxinplanet/"><img src="{% static 'login_app/images/drawninstagram.png' %}" class="socialmediaasset" alt="instagram"></a>
+          <a href="https://www.facebook.com/xinxinplanet/"><img src="{% static 'login_app/images/drawnfacebook.png' %}" class="socialmediaasset" alt="facebook"></a>
+        </div>
+      </div>
+      <div id="bandcampplayer">
+        <iframe style="border: 0; width: 640px; height: 840px;" src="https://bandcamp.com/EmbeddedPlayer/album=3803056331/size=large/bgcol=ffffff/linkcol=f171a2/transparent=true/" seamless>
+          <a href="http://xinxin.bandcamp.com/album/blue-flowers">blue flowers by XINXIN</a>
+        </iframe>
+      </div>
+      <div id="video"><iframe src="https://www.youtube.com/embed/ZQ6OyIGMHvY?ecver=2" frameborder="0"></iframe></div>
+      <div id="tourdatescontainer">
+        <div id="formcontainer">
+          <form>
+            <span class="medium">
+              (ﾉ◕ヮ◕)ﾉ*:･✧<br>
+              ✧･: * JOIN OUR MAILING LIST FO SHOW UPDATES PLUS FREE SHIET YEEE *:･✧
+            </span><br>
+            <div class="formdescription" style="height:16px; color:#7EA9D8; margin-top:12px;">F I R S T ~ N A M E :</div>
+            <input type="text" name="firstname" placeholder="..." class="input">
+            <div class="formdescription" style="height:16px; color:#7EA9D8; margin-top:12px;">L A S T ~ N A M E :</div>
+            <input type="text" name="lastname" placeholder="..." class="input">
+            <div class="formdescription" style="height:16px; color:#7EA9D8; margin-top:12px;">Y O R ~ E M A I L :</div>
+            <input type="email" name="email" placeholder="example@email.com" class="input">
+            <div class="formdescription" style="height:16px; color:#7EA9D8; margin-top:12px;">B L U R B :</div>
+            <textarea name="blurb" placeholder="I once spit my gum across the street" class="input" rows="2" cols="24"></textarea><br>
+            <div class="formdescription" style="height:16px; color:#7EA9D8; margin-top:12px;"><input type="submit" value="Sign me upp!!!" class="button"></div>
+            <div class="medium" style="margin-top:20px;">ヾ(⌐■_■)ノ♪</div>
+          </form>
+        </div>
+        <span class="medium">Up N' Comin' Shows...</span>
+          <div id="tourdaterow">
+            <div class="tourdate"> 17 OCT 2017</div>
+            <div class="tourcity">POMONA, CA</div>
+            <div class="tourvenue">ACEROGAMI</div>
+            <div class="buytickets"><a href="https://ticketmaster.com">INFO</a></div>
+          </div>
+          <div id="tourdaterow">
+            <div class="tourdate"> 17 OCT 2017</div>
+            <div class="tourcity">POMONA, CA</div>
+            <div class="tourvenue">ACEROGAMI</div>
+            <div class="buytickets"><a href="https://ticketmaster.com">INFO</a></div>
+          </div>
+          <div id="tourdaterow">
+            <div class="tourdate"> 17 OCT 2017</div>
+            <div class="tourcity">POMONA, CA</div>
+            <div class="tourvenue">ACEROGAMI</div>
+            <div class="buytickets"><a href="https://ticketmaster.com">INFO</a></div>
+          </div>
+          <div id="tourdaterow">
+            <div class="tourdate"> 17 OCT 2017</div>
+            <div class="tourcity">POMONA, CA</div>
+            <div class="tourvenue">ACEROGAMI</div>
+            <div class="buytickets"><a href="https://ticketmaster.com">INFO</a></div>
+          </div>
+          <div id="bottombreak" style="height:100px;"></div>
+      </div>
+    </div>
+  </body>
+</html>

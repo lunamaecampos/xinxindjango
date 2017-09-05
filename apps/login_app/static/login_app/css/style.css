@@ -1,0 +1,147 @@
+* {
+  font-family: 'Century Gothic', 'CenturyGothicRegular', sans-serif !important;
+  color: white;
+}
+a {
+  text-decoration: none;
+}
+/*html{
+  background-image: url(xinxinbackground.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}*/
+/*set background image to fixed position and stretch over entire screen*/
+body{
+  margin: 0;
+}
+/*submission form*/
+form{
+  color: #7EA9D8;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+iframe{
+  width: 640px;
+  height: 360px;
+  text-align: center;
+}
+/*sets title size to 128 pixels and centers*/
+#title{
+  text-align: center;
+  font-size: 8em;
+  text-shadow: -10px 10px 0px pink, -20px 20px 0px orchid;
+}
+#landingwrapper{
+  width: 100%;
+  padding-top: 100px;
+  height: 500px;
+}
+#bandcampplayer{
+  margin:auto;
+  text-align: center;
+  width: 100%
+}
+#socialmediamenu{
+  /*background-color: white;*/
+  /*height: 10%;*/
+  width: 28%;
+  margin: auto;
+}
+#video{
+  margin: auto;
+  margin-top: 100px;
+  text-align: center;
+  height: 480px;
+}
+#formcontainer{
+  background-color: pink;
+  width: 100%;
+  height: 420px;
+  font-size: 12px;
+}
+#tourdatescontainer{
+  /*background: pink;*/
+  width: 100%;
+  height: 820px;
+  padding-top: 10px;
+  text-align: center;
+}
+#tourdaterow{
+  background-color: skyblue;
+  width: 80%;
+  height: 80px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;*/
+}
+#tourdaterow:hover{
+  background-color: dodgerblue;
+  transition: 0.3s;
+}
+.tourdate{
+  margin: auto;
+  display: inline;
+  margin-left: 80px;
+  height: 50%;
+  line-height: 40px;
+}
+.tourcity{
+  margin: auto;
+  display: inline;
+  height: 50%;
+  line-height: 40px;
+}
+.tourvenue{
+  margin: auto;
+  display: inline;
+  height: 50%;
+  line-height: 40px;
+}
+.buytickets{
+  margin: auto;
+  background-color: pink;
+  display: inline;
+  margin-right: 80px;
+  height:50%;
+  width: 100px;
+  line-height: 40px;
+}
+a:hover{
+  color: dodgerblue;
+  transition: 0.3s;
+}
+.medium{
+  font-size: 2em;
+  padding:inherit;
+  text-align: center;
+  line-height: 48px;
+}
+.input{
+  outline: none;
+  color: black;
+  border: 1px solid #888;
+  border-radius: 2px;
+  resize: none;
+}
+.button{
+  font-size: 1.5em;
+  border: 0.1em solid white;
+  background-color: #7EA9D8;
+}
+.button:hover{
+  transform: scale(1.03);
+  transition: 0.05s;
+}
+.socialmediaasset{
+  height: 100%;
+  width: 24%
+}
+.socialmediaasset:hover{
+  transform: scale(1.1);
+  transition: 0.2s;
+}
