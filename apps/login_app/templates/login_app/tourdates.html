@@ -5,6 +5,7 @@
     <title>Tour Dates</title>
   </head>
   <body>
+    <h3>Welcome, {{request.session.user.username}}!</h3>
     <h1>Tour Dates</h1>
     <form style="border: 1px solid dodgerblue">
       Date & Time:<input type="datetime-local" name="tourdate">
