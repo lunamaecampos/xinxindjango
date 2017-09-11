@@ -5,14 +5,39 @@
     <title>Tour Dates</title>
   </head>
   <body>
-    <h3>Welcome, {{request.session.user.username}}!</h3>
+    <h3>Welcome, {{request.session.theuser}}!</h3>
+    <p><a href="/logout">Logout</a></p>
     <h1>Tour Dates</h1>
-    <form style="border: 1px solid dodgerblue">
-      Date & Time:<input type="datetime-local" name="tourdate">
+    <form style="border: 1px solid dodgerblue" action="/add" method="POST">
+      {% csrf_token %}
+      Date & Time:<input type="datetime-local" name="tourdatetime">
       Tour City: <input type="text" name="tourcity">
       Tour Venue: <input type="text" name="tourvenue">
-      Info Url:<input type="text" name="infourl">
+      Info Url:<input type="text" name="tourinfourl">
       <button>Post</button>
     </form>
+    <table style="width:100%; border: 1px solid black;">
+      <tr>
+        <th style="border: 1px solid black;">Tour Date & Time</th>
+        <th style="border: 1px solid black;">Tour City</th>
+        <th style="border: 1px solid black;">Tour Venue</th>
+        <th style="border: 1px solid black;">URL</th>
+        <th style="border: 1px solid black;">Delete</th>
+      </tr>
+      {%if tourdateall %}
+        {%for t in tourdateall %}
+      <form action="/delete" method="POST">
+        {% csrf_token %}
+        <tr style="border: 1px solid black;">
+          <td style="border: 1px solid black;">{{t.tourdatetime}}</td>
+          <td style="border: 1px solid black;">{{t.tourcity}}</td>
+          <td style="border: 1px solid black;">{{t.tourvenue}}</td>
+          <td style="border: 1px solid black;">{{t.tourinfourl}}</td>
+          <td style="border: 1px solid black;"><button>Delete</button></td>
+        </tr>
+      </form>
+        {% endfor %}
+      {% endif %}
+    </table>
   </body>
 </html>

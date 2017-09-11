@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse
 from django.contrib import messages
 from models import User
+from .models import User, Tourdate
 # Create your views here.
 # views.py
 def index(request):
@@ -30,6 +31,33 @@ def login(request):
             return redirect('/dashboard')
 def logpage(request):
 	return render(request, "login_app/login.html")
+def logout(request):
+    del request.session['theuser']
+    del request.session['userid']
+    return redirect('/logpage')
 def dashboard(request):
-	request.session['username'] = request.POST['username']
-	return render(request, "login_app/tourdates.html")
+		# tourdatetime = Tourdate.tourdatetime
+		# tourcity = Tourdate.tourcity
+		# tourvenue = Tourdate.tourvenue
+		# tourinfourl = tourinfourl
+	tourdateall = Tourdate.objects.all()
+	context={
+		'tourdateall': tourdateall,
+	}
+	return render(request, "login_app/tourdates.html", context)
+def add(request):
+	if request.method == 'POST':
+		tourdateall = Tourdate.objects.addtourdate(request.POST)
+		if 'errors' in tourdateall:
+			for error in tourdateall['errors']:
+				messages.error(request, error)
+			return redirect ('/dashboard')
+		if 'Tourdateid' in tourdateall:
+			return redirect('/dashboard')
+def delete(request):
+	# tourdaterow = Tourdate.objects.get(id=id)
+	# context = {
+	# 	'tourdaterow':tourdaterow
+	# }
+	# tourdaterow.delete()
+	return redirect('/dashboard')
