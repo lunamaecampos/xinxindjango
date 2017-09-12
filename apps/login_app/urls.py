@@ -8,5 +8,5 @@ urlpatterns = [
     url(r'^dashboard', views.dashboard),
     url(r'^add', views.add),
     url(r'^logout$', views.logout),
-    url(r'^delete', views.delete),
+    url(r'^delete/(?P<id>\d+)$', views.deleteview),
 ]

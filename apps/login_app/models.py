@@ -44,7 +44,7 @@ class UserManager(models.Manager):
 class TourdatesManager(models.Manager):
     def addtourdate(self, postData):
         error_msgs = []
-        current_date = time.strftime('%Y-%m-%d')
+        # current_date = time.strftime('%Y-%m-%d')
         if len(postData['tourcity']) < 1:
             error_msgs.append("You need to add a tour city!")
         if len(postData['tourvenue']) <1:
@@ -58,7 +58,10 @@ class TourdatesManager(models.Manager):
         else:
             tourdateall = Tourdate.objects.create(tourdatetime=postData['tourdatetime'], tourcity=postData['tourcity'], tourvenue=postData['tourvenue'], tourinfourl=postData['tourinfourl'])
             return {'Tourdateid':tourdateall.id}
-    # def deltourdate(self, postData):
+    def deletetourdate(self, id):
+		Tourdate.objects.get(id=id).delete()
+                print id
+
 class User(models.Model):
     username = models.CharField(max_length=255)
     password = models.CharField(max_length=255)

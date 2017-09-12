@@ -36,11 +36,8 @@ def logout(request):
     del request.session['userid']
     return redirect('/logpage')
 def dashboard(request):
-		# tourdatetime = Tourdate.tourdatetime
-		# tourcity = Tourdate.tourcity
-		# tourvenue = Tourdate.tourvenue
-		# tourinfourl = tourinfourl
 	tourdateall = Tourdate.objects.all()
+	# tourdateall.sort(key=lambda r: r.Tourdate.tourdatetime)
 	context={
 		'tourdateall': tourdateall,
 	}
@@ -54,10 +51,9 @@ def add(request):
 			return redirect ('/dashboard')
 		if 'Tourdateid' in tourdateall:
 			return redirect('/dashboard')
-def delete(request):
-	# tourdaterow = Tourdate.objects.get(id=id)
-	# context = {
-	# 	'tourdaterow':tourdaterow
-	# }
-	# tourdaterow.delete()
+
+def deleteview(request, id):
+	print id
+	Tourdate.objects.deletetourdate(id=id)
+	print id
 	return redirect('/dashboard')

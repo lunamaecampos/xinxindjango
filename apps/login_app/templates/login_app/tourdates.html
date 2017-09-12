@@ -26,7 +26,7 @@
       </tr>
       {%if tourdateall %}
         {%for t in tourdateall %}
-      <form action="/delete" method="POST">
+      <form action="/delete/{{t.id}}" method="POST">
         {% csrf_token %}
         <tr style="border: 1px solid black;">
           <td style="border: 1px solid black;">{{t.tourdatetime}}</td>
