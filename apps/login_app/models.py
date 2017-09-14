@@ -10,11 +10,18 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 class UserManager(models.Manager):
  def register(self, postData):
      error_msgs = []
+    #  DONT SHARE WITH ANYONE. FOR ADMINISTRAATOR PURPOSES ONLY
+    # *********************************************************
+     bandadmintoken = "123xinxin2017"
+    # *********************************************************
      try:
          if User.objects.get(username=postData['username']):
              error_msgs.append("Username already in use")
      except:
          pass
+     if not str(postData['admintoken']) == bandadmintoken:
+        error_msgs.append("Please contact administrator for the Admin Token")
+        print error_msgs
      if len(postData['username']) < 3:
          error_msgs.append("Username is too short")
      if len(postData['password']) < 8:
@@ -44,7 +51,7 @@ class UserManager(models.Manager):
 class TourdatesManager(models.Manager):
     def addtourdate(self, postData):
         error_msgs = []
-        # current_date = time.strftime('%Y-%m-%d')
+        current_date = time.strftime('%Y-%m-%d')
         if len(postData['tourcity']) < 1:
             error_msgs.append("You need to add a tour city!")
         if len(postData['tourvenue']) <1:
@@ -61,7 +68,21 @@ class TourdatesManager(models.Manager):
     def deletetourdate(self, id):
 		Tourdate.objects.get(id=id).delete()
                 print id
-
+class SubscriptionManager(models.Manager):
+    def addSubscriber(self, postData):
+        error_msgs = []
+        current_date = time.strftime('%Y-%m-%d')
+        if len(postData['firstname']) < 1:
+            error_msgs.append("You need to give us your first name please!")
+        if len(postData['lastname']) < 1:
+            error_msgs.append("You need to give us your last name please!")
+        if not re.match(EMAIL_REGEX, postData['email']):
+            error_msgs.append("invalid email")
+        if error_msgs:
+            return{'errors':error_msgs}
+        else:
+            newSubscriber = Subscriber.objects.create(firstname=postData['firstname'], lastname=postData['lastname'], blurb=postData['blurb'], email=postData['email'])
+            return{'subscriberID': newSubscriber.id}
 class User(models.Model):
     username = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
@@ -77,3 +98,11 @@ class Tourdate(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = TourdatesManager()
+class Subscriber(models.Model):
+    firstname = models.CharField(max_length=25)
+    lastname = models.CharField(max_length=25)
+    email = models.CharField(max_length=50)
+    blurb = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    objects = SubscriptionManager()

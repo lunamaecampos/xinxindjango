@@ -65,11 +65,15 @@
       <div id="video"><iframe src="https://www.youtube.com/embed/ZQ6OyIGMHvY?ecver=2" frameborder="0"></iframe></div>
       <div id="tourdatescontainer">
         <div id="formcontainer">
-          <form>
+          <form action="/addsubscriber" method="POST">
+            {% csrf_token %}
             <span class="medium">
               (ﾉ◕ヮ◕)ﾉ*:･✧<br>
               ✧･: * JOIN OUR MAILING LIST FO SHOW UPDATES PLUS FREE SHIET YEEE *:･✧
             </span><br>
+            {% for message in messages %}
+              <p>{{message.message}}</p>
+            {% endfor %}
             <div class="formdescription" style="height:16px; color:#7EA9D8; margin-top:12px;">F I R S T ~ N A M E :</div>
             <input type="text" name="firstname" placeholder="..." class="input">
             <div class="formdescription" style="height:16px; color:#7EA9D8; margin-top:12px;">L A S T ~ N A M E :</div>
@@ -84,30 +88,16 @@
         </div>
         <div class="break" style="height:50px;"></div>
         <span class="medium">Up N' Comin' Shows...</span>
+        {%if tourdateall %}
+          {%for t in tourdateall %}
           <div id="tourdaterow">
-            <div class="tourdate"> 17 OCT 2017</div>
-            <div class="tourcity">POMONA, CA</div>
-            <div class="tourvenue">ACEROGAMI</div>
-            <div class="buytickets"><a href="https://ticketmaster.com">INFO</a></div>
+            <div class="tourdate">{{t.tourdatetime}}</div>
+            <div class="tourcity">{{t.tourcity}}</div>
+            <div class="tourvenue">{{t.tourvenue}}</div>
+            <div class="buytickets"><a href="{{t.tourinfourl}}">INFO</a></div>
           </div>
-          <div id="tourdaterow">
-            <div class="tourdate"> 17 OCT 2017</div>
-            <div class="tourcity">POMONA, CA</div>
-            <div class="tourvenue">ACEROGAMI</div>
-            <div class="buytickets"><a href="https://ticketmaster.com">INFO</a></div>
-          </div>
-          <div id="tourdaterow">
-            <div class="tourdate"> 17 OCT 2017</div>
-            <div class="tourcity">POMONA, CA</div>
-            <div class="tourvenue">ACEROGAMI</div>
-            <div class="buytickets"><a href="https://ticketmaster.com">INFO</a></div>
-          </div>
-          <div id="tourdaterow">
-            <div class="tourdate"> 17 OCT 2017</div>
-            <div class="tourcity">POMONA, CA</div>
-            <div class="tourvenue">ACEROGAMI</div>
-            <div class="buytickets"><a href="https://ticketmaster.com">INFO</a></div>
-          </div>
+          {% endfor %}
+        {% endif %}
           <div class="break" style="height:100px;"></div>
           <div id="contactinfo" style="font-size:1.5em;">
             For Press/Bookings please email us at XINXIN@GMAIL.COM

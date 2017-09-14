@@ -6,11 +6,11 @@
   </head>
   <body>
     <h1>Admin Login</h1>
+    {% for message in messages %}
+      <p style="color:red;">{{message.message}}</p>
+    {% endfor %}
     <form style="border: 1px solid dodgerblue;" action="/login" method="POST">
       <h2>Login</h2>
-      {% for message in messages %}
-        <p>{{message.message}}</p>
-      {% endfor %}
       Username:<input type="text" name="username"><br>
       Password:<input type="password" name="password"><br>
       {% csrf_token %}

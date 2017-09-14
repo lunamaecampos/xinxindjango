@@ -2,18 +2,39 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse
 from django.contrib import messages
 from models import User
-from .models import User, Tourdate
+from .models import User, Tourdate, Subscriber
+from datetime import date, datetime
 # Create your views here.
 # views.py
 def index(request):
-	return render(request, "login_app/index.html")
+	now = datetime.now()
+	tourdateall = Tourdate.objects.order_by('tourdatetime')
+	context={
+		'tourdateall': tourdateall,
+	}
+	return render(request, "login_app/index.html", context)
+def thankyouPage(request):
+	newSubscriber = Subscriber.objects.order_by('-created_at')
+	context={
+		'newSubscriber': newSubscriber,
+	}
+	return render(request, "login_app/thankyou.html", context)
+def addsubscriber(request):
+		if request.method == 'POST':
+			newSubscriber = Subscriber.objects.addSubscriber(request.POST)
+			if 'errors' in newSubscriber:
+				for error in newSubscriber['errors']:
+					messages.error(request, error)
+				return redirect ('/')
+			if 'subscriberID' in newSubscriber:
+				return redirect('/thankyou')
 def register(request):
     if request.method=="POST":
         user = User.objects.register(request.POST)
     if 'errors' in user:
         for error in user['errors']:
             messages.error(request, error)
-        return redirect('/')
+        return redirect('/logpage')
     if 'theuser' in user:
         request.session['theuser'] = user['theuser']
         request.session['userid'] = user['userid']
@@ -36,8 +57,12 @@ def logout(request):
     del request.session['userid']
     return redirect('/logpage')
 def dashboard(request):
-	tourdateall = Tourdate.objects.all()
-	# tourdateall.sort(key=lambda r: r.Tourdate.tourdatetime)
+	try:
+		request.session['theuser']
+	except KeyError:
+		return redirect('/')
+	tourdateall = Tourdate.objects.order_by('-tourdatetime')
+	# tourdateall = Tourdate.objects.all()
 	context={
 		'tourdateall': tourdateall,
 	}
@@ -51,9 +76,7 @@ def add(request):
 			return redirect ('/dashboard')
 		if 'Tourdateid' in tourdateall:
 			return redirect('/dashboard')
-
 def deleteview(request, id):
-	print id
 	Tourdate.objects.deletetourdate(id=id)
-	print id
+	# print id
 	return redirect('/dashboard')

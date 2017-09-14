@@ -120,18 +120,21 @@ textarea:focus {
   margin-left: 80px;
   height: 50%;
   line-height: 40px;
+  text-align: center;
 }
 .tourcity{
   margin: auto;
   display: inline;
   height: 50%;
   line-height: 40px;
+  /*text-align: center;*/
 }
 .tourvenue{
   margin: auto;
   display: inline;
   height: 50%;
   line-height: 40px;
+  /*text-align: center;*/
 }
 .buytickets{
   margin: auto;
@@ -141,6 +144,7 @@ textarea:focus {
   height:50%;
   width: 100px;
   line-height: 40px;
+  /*text-align: center;*/
 }
 a:hover{
   color: dodgerblue;
