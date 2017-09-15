@@ -45,7 +45,7 @@ def login(request):
         if 'errors' in user:
             for error in user['errors']:
                 messages.error(request, error)
-                return redirect('/')
+                return redirect('/logpage')
         if 'theuser' in user:
             request.session['theuser'] = user['theuser']
             request.session['userid'] = user['userid']

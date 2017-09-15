@@ -13,47 +13,18 @@
       }
     </style>
     {% load staticfiles %}
-      <!-- The line above tells Django to be ready to listen for static files -->
     <link rel="stylesheet" href="{% static 'login_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      $(function(){
-        var documentEl = $(document),
-            fadeElem = $("#landingwrapper");
-        documentEl.on('scroll', function(){
-          var currScrollPos = documentEl.scrollTop();
-
-          fadeElem.each(function(){
-            var $this = $(this),
-              elemOffsetTop = $this.offset().top;
-            if(currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/200);
-          });
-        });
-      });
-      $(function(){
-        var documentEl = $(document),
-            fadeElem = $("#video");
-        documentEl.on('scroll', function(){
-          var currScrollPos = documentEl.scrollTop();
-
-          fadeElem.each(function(){
-            var $this = $(this),
-              elemOffsetTop = $this.offset().top;
-            if(currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/400);
-          });
-        });
-      });
-    </script>
     <title>Xinxin</title>
   </head>
   <body>
     <div id="wrapper">
       <div id="landingwrapper"><h1 id="title">X I N X I N</h1>
         <div id="socialmediamenu">
+          <a href="https://www.instagram.com/xinxinplanet/"><img src="{% static 'login_app/images/drawninstagram.png' %}" class="socialmediaasset" alt="instagram"></a>
           <a href="https://xinxin.bandcamp.com/"><img src="{% static 'login_app/images/drawnbandcamp.png' %}" class="socialmediaasset" alt="bandcamp"></a>
           <a href="https://soundcloud.com/xinxinplanet"><img src="{% static 'login_app/images/drawnsoundcloud.png' %}" class="socialmediaasset" alt="soundcloud"></a>
-          <a href="https://www.instagram.com/xinxinplanet/"><img src="{% static 'login_app/images/drawninstagram.png' %}" class="socialmediaasset" alt="instagram"></a>
           <a href="https://www.facebook.com/xinxinplanet/"><img src="{% static 'login_app/images/drawnfacebook.png' %}" class="socialmediaasset" alt="facebook"></a>
         </div>
       </div>
@@ -105,5 +76,7 @@
           <div class="break" style="height:50px;"></div>
       </div>
     </div>
+    <script type="text/javascript" src="{% static 'login_app/javascript/index.js' %}">
+    </script>
   </body>
 </html>

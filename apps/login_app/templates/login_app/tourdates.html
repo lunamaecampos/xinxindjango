@@ -2,38 +2,45 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Tour Dates</title>
+    <title>Tour Dates Dashboard</title>
+    {% load static %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'login_app/css/tourdates.css' %}" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <h3>Welcome, {{request.session.theuser}}!</h3>
-    <p><a href="/logout">Logout</a></p>
+    <div id="welcomeHeader"> Welcome, {{request.session.theuser}}!
+      <a href="/logout">Logout Heree</a>
+    </div>
     <h1>Tour Dates</h1>
-    <form style="border: 1px solid dodgerblue" action="/add" method="POST">
+    <div class="tab">
+        <h2>Enter New Tour Dates Here:</h2>
+    </div>
+    <form action="/add" method="POST">
       {% csrf_token %}
-      Date & Time:<input type="datetime-local" name="tourdatetime">
-      Tour City: <input type="text" name="tourcity">
-      Tour Venue: <input type="text" name="tourvenue">
-      Info Url:<input type="text" name="tourinfourl">
+      Date & Time:<input type="datetime-local" name="tourdatetime">format: mm/dd/yyyy, hh:mm pm <br>
+      Tour City: <input type="text" name="tourcity"><br>
+      Tour Venue: <input type="text" name="tourvenue"><br>
+      Info Url:<input type="text" name="tourinfourl"> full links ie: https://tm.com/tx/evnt/id=?w98sf<br>
       <button>Post</button>
     </form>
-    <table style="width:100%; border: 1px solid black;">
+    <table>
       <tr>
-        <th style="border: 1px solid black;">Tour Date & Time</th>
-        <th style="border: 1px solid black;">Tour City</th>
-        <th style="border: 1px solid black;">Tour Venue</th>
-        <th style="border: 1px solid black;">URL</th>
-        <th style="border: 1px solid black;">Delete</th>
+        <th>Tour Date & Time</th>
+        <th>Tour City</th>
+        <th>Tour Venue</th>
+        <th>URL</th>
+        <th>Delete</th>
       </tr>
       {%if tourdateall %}
         {%for t in tourdateall %}
       <form action="/delete/{{t.id}}" method="POST">
         {% csrf_token %}
-        <tr style="border: 1px solid black;">
-          <td style="border: 1px solid black;">{{t.tourdatetime}}</td>
-          <td style="border: 1px solid black;">{{t.tourcity}}</td>
-          <td style="border: 1px solid black;">{{t.tourvenue}}</td>
-          <td style="border: 1px solid black;">{{t.tourinfourl}}</td>
-          <td style="border: 1px solid black;"><button>Delete</button></td>
+        <tr>
+          <td>{{t.tourdatetime}}</td>
+          <td>{{t.tourcity}}</td>
+          <td>{{t.tourvenue}}</td>
+          <td>{{t.tourinfourl}}</td>
+          <td><button>Delete</button></td>
         </tr>
       </form>
         {% endfor %}

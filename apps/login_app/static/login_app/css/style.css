@@ -5,14 +5,6 @@
 a {
   text-decoration: none;
 }
-/*html{
-  background-image: url(xinxinbackground.gif);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-}*/
-/*set background image to fixed position and stretch over entire screen*/
 body{
   margin: 0;
 }
@@ -76,10 +68,8 @@ textarea:focus {
   width: 100%
 }
 #socialmediamenu{
-  /*background-color: white;*/
-  /*height: 10%;*/
   width: 28%;
-  margin: auto;
+  padding-left: 39%;
 }
 #video{
   margin: auto;
@@ -115,9 +105,10 @@ textarea:focus {
   transition: 0.3s;
 }
 .tourdate{
+  width: 250px;
   margin: auto;
   display: inline;
-  margin-left: 80px;
+  /*margin-left: 80px;*/
   height: 50%;
   line-height: 40px;
   text-align: center;
@@ -127,6 +118,7 @@ textarea:focus {
   display: inline;
   height: 50%;
   line-height: 40px;
+  width: 200px;
   /*text-align: center;*/
 }
 .tourvenue{
@@ -134,6 +126,7 @@ textarea:focus {
   display: inline;
   height: 50%;
   line-height: 40px;
+  width: 350px;
   /*text-align: center;*/
 }
 .buytickets{
@@ -173,8 +166,8 @@ a:hover{
   transition: 0.05s;
 }
 .socialmediaasset{
-  height: 100%;
-  width: 24%
+  height: 72%;
+  width: 17%
 }
 .socialmediaasset:hover{
   transform: scale(1.1);

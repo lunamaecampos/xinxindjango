@@ -1,0 +1,78 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+h1{
+  font-size: 5em;
+  padding-left: 33%;
+  color: white;
+  text-shadow: -10px 10px 0px pink, -20px 20px 0px orchid;
+}
+h2 {
+  color: white;
+  padding-left: 5%;
+
+}
+body {
+  background-color: papayawhip;
+}
+p {
+  color:red; padding-left: 40%;
+}
+form {
+  padding-left:5%;
+  padding-bottom:1%;
+  border: 1px solid lightblue;
+  border-top: none;
+  margin-left: 27%;
+  margin-right: 27%;
+  margin-bottom: 2%;
+}
+button {
+  background-color: lightblue;
+  border: 1px solid #ccc;
+  color: white;
+}
+button:hover {
+  background-color: skyblue;
+}
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: lightblue;
+    margin-left:27%; margin-right: 27%;
+}
+table {
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th {
+  background-color: lightblue;
+  border: 1px solid lightblue;
+  border-bottom: none;
+}
+tr {
+  border: 1px solid black;
+}
+td {
+  padding-left: 1%;
+}
+tr:nth-child(odd) {
+  background-color: moccasin;
+}
+a {
+  float: right;
+  text-decoration: none;
+  padding-right: 1%;
+  color: orchid;
+}
+#welcomeHeader {
+  font-size: 1.5em;
+  padding-left: 1%;
+  color: orchid;
+}
+#h1Wrapper {
+  width:100%;
+  padding-left:5%;
+  background-color:lightblue;
+}
