@@ -1,196 +1,245 @@
 @media all and (max-width: 799px){
-* {
-  font-family: 'Century Gothic', 'CenturyGothicRegular', sans-serif !important;
-  color: white;
-}
-a {
-  text-decoration: none;
-}
-body{
-  margin: 0;
-}
-/*submission form*/
-form{
-  color: #7EA9D8;
-  width: 100%;
-  text-align: center;
-  margin: auto;
-}
-iframe.video{
-  width: 90%;
-  height: 90%;
-  text-align: center;
-  /*position: absolute;*/
-}
-input[type=text] {
-    box-sizing: border-box;
-    border: 3px solid #ccc;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
-}
-input[type=email] {
-    box-sizing: border-box;
-    border: 3px solid #ccc;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
-}
+  * {
+    font-family: 'Century Gothic', 'CenturyGothicRegular', sans-serif !important;
+    color: white;
+  }
+  a {
+    text-decoration: none;
+  }
+  body{
+    margin: 0;
+  }
+  /*submission form*/
+  form{
+    color: #7EA9D8;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+  }
+  iframe.video{
+    width: 90%;
+    height: 90%;
+    text-align: center;
+    /*position: absolute;*/
+  }
+  input[type=text] {
+      box-sizing: border-box;
+      border: 3px solid #ccc;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      outline: none;
+  }
+  input[type=email] {
+      box-sizing: border-box;
+      border: 3px solid #ccc;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      outline: none;
+  }
 
-textarea[name=blurb]{
-    box-sizing: border-box;
-    border: 3px solid #ccc;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
+  textarea[name=blurb]{
+      box-sizing: border-box;
+      border: 3px solid #ccc;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      outline: none;
+  }
+  input[type=text]:focus {
+      border: 3px solid #555;
+  }
+  input[type=email]:focus {
+      border: 3px solid #555;
+  }
+  textarea:focus {
+    border: 3px solid #555;
+  }
+  /*sets title size to 128 pixels and centers*/
+  #title{
+    text-align: center;
+    font-size: 5em;
+    text-shadow: -10px 10px 0px pink, -20px 20px 0px orchid;
+  }
+  #landingwrapper{
+    width: 100%;
+    padding-top: 100px;
+    height: 500px;
+  }
+  #bandcampplayer{
+    display: none;
+  }
+  #mobilebandcampplayer{
+    width: 100%;
+  }
+  #socialmediamenu{
+    width: 100%;
+    padding-left: 6%;
+    display: flex;
+    justify-content: space-between;
+  }
+  #video{
+    /*position: relative;*/
+    margin-top: 100px;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio*/
+    text-align: center;
+    height: 480px;
+    padding-top: 30px;
+    padding-left: 0.1%;
+    padding-right: 0.1%;
+    height: 0;
+    overflow: hidden;
+  }
+  #formcontainer{
+    background-color: pink;
+    width: 90%;
+    /*height: 425px;*/
+    height:auto;
+    font-size: 0.75em;
+    margin: auto;
+  }
+  #tourdatescontainer{
+    /*background: pink;*/
+    width: 100%;
+    /*height: 820px;*/
+    padding-top: 10px;
+    text-align: center;
+  }
+  #tourdaterow{
+    background-color: skyblue;
+    width: 90%;
+    height: 180px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /*display: flex;
+    justify-content: space-between;*/
+  }
+  #tourdaterow:hover{
+    background-color: dodgerblue;
+    transition: 0.3s;
+  }
+  #contactinfo{
+    font-size: 1em;
+  }
+  #break1{
+    height:50px;
+  }
+  #break2{
+    height: 50px;
+  }
+  #break3{
+    height: 450px;
+  }
+  #break4{
+    height: 300px;
+  }
+  #break5{
+    height: 50px;
+  }
+  #break6{
+    height: 50px;
+  }
+  .tourdate{
+    width: 250px;
+    margin: auto;
+    display: block;
+    /*margin-left: 80px;*/
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .tourcity{
+    margin: auto;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    width: 200px;
+    font-weight: bold;
+    /*text-align: center;*/
+  }
+  .tourvenue{
+    margin: auto;
+    display: block;
+    height: 50px;
+    line-height: 40px;
+    width: 350px;
+    /*text-align: center;*/
+    font-weight: bold;
+  }
+  .buytickets{
+    margin: auto;
+    background-color: pink;
+    display: block;
+    height: 40px;
+    width: 200px;
+    line-height: 40px;
+    font-weight: bold;
+    /*text-align: center;*/
+  }
+  .formdescription{
+    height:16px;
+    color:#7EA9D8;
+    margin-top:12px;
+  }
+  a:hover{
+    color: dodgerblue;
+    transition: 0.3s;
+  }
+  .medium{
+    font-size: 1.5em;
+    padding:inherit;
+    text-align: center;
+    line-height: 48px;
+  }
+  .input{
     outline: none;
+    color: black;
+    border: 1px solid #888;
+    border-radius: 2px;
+    resize: none;
+  }
+  .button{
+    font-size: 1.5em;
+    border: 0.1em solid white;
+    background-color: #7EA9D8;
+  }
+  .button:hover{
+    transform: scale(1.03);
+    transition: 0.05s;
+  }
+  .socialmediaasset{
+    height: 100%;
+    width: 40%
+  }
+  .socialmediaasset:hover{
+    transform: scale(1.1);
+    transition: 0.2s;
+  }
 }
-input[type=text]:focus {
-    border: 3px solid #555;
+@media only screen
+and (orientation : landscape) {
+  #break1{
+    height:0px;
+  }
+  #break2{
+    height: 50px;
+  }
+  #break3{
+    height: 300px;
+  }
+  #break4{
+    height: 200px;
+  }
+  #break5{
+    height: 50px;
+  }
+  #break6{
+    height: 50px;
+  }
+  #break7{
+    height:150px;
+  }
 }
-input[type=email]:focus {
-    border: 3px solid #555;
-}
-textarea:focus {
-  border: 3px solid #555;
-}
-/*sets title size to 128 pixels and centers*/
-#title{
-  text-align: center;
-  font-size: 5em;
-  text-shadow: -10px 10px 0px pink, -20px 20px 0px orchid;
-}
-#landingwrapper{
-  width: 100%;
-  padding-top: 100px;
-  height: 500px;
-}
-#bandcampplayer{
-  display: none;
-}
-#socialmediamenu{
-  width: 100%;
-  padding-left: 6%;
-  display: flex;
-  justify-content: space-between;
-}
-#video{
-  /*position: relative;*/
-  margin-top: 100px;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio*/
-  text-align: center;
-  height: 480px;
-  padding-top: 30px;
-  padding-left: 0.1%;
-  padding-right: 0.1%;
-  height: 0;
-  overflow: hidden;
-}
-#formcontainer{
-  background-color: pink;
-  width: 90%;
-  /*height: 425px;*/
-  height:auto;
-  font-size: 12px;
-  margin: auto;
-}
-#tourdatescontainer{
-  /*background: pink;*/
-  width: 100%;
-  /*height: 820px;*/
-  padding-top: 10px;
-  text-align: center;
-}
-#tourdaterow{
-  background-color: skyblue;
-  width: 90%;
-  height: 180px;
-  margin: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  /*display: flex;
-  justify-content: space-between;*/
-}
-#tourdaterow:hover{
-  background-color: dodgerblue;
-  transition: 0.3s;
-}
-#contactinfo{
-  font-size: 1em;
-}
-.tourdate{
-  width: 250px;
-  margin: auto;
-  display: block;
-  /*margin-left: 80px;*/
-  height: 40px;
-  line-height: 40px;
-  font-weight: bold;
-  text-align: center;
-}
-.tourcity{
-  margin: auto;
-  display: block;
-  height: 40px;
-  line-height: 40px;
-  width: 200px;
-  font-weight: bold;
-  /*text-align: center;*/
-}
-.tourvenue{
-  margin: auto;
-  display: block;
-  height: 50px;
-  line-height: 40px;
-  width: 350px;
-  /*text-align: center;*/
-  font-weight: bold;
-}
-.buytickets{
-  margin: auto;
-  background-color: pink;
-  display: block;
-  height: 40px;
-  width: 200px;
-  line-height: 40px;
-  font-weight: bold;
-  /*text-align: center;*/
-}
-a:hover{
-  color: dodgerblue;
-  transition: 0.3s;
-}
-.medium{
-  font-size: 1.5em;
-  padding:inherit;
-  text-align: center;
-  line-height: 48px;
-}
-.input{
-  outline: none;
-  color: black;
-  border: 1px solid #888;
-  border-radius: 2px;
-  resize: none;
-}
-.button{
-  font-size: 1.5em;
-  border: 0.1em solid white;
-  background-color: #7EA9D8;
-}
-.button:hover{
-  transform: scale(1.03);
-  transition: 0.05s;
-}
-.socialmediaasset{
-  height: 100%;
-  width: 40%
-}
-.socialmediaasset:hover{
-  transform: scale(1.1);
-  transition: 0.2s;
-}
-}
-
 @media all and (min-width: 800px) {
   * {
     font-family: 'Century Gothic', 'CenturyGothicRegular', sans-serif !important;
@@ -276,22 +325,21 @@ a:hover{
   }
   #formcontainer{
     background-color: pink;
-    width: 100%;
+    width: 90%;
     /*height: 425px;*/
     height: auto;
     font-size: 12px;
-
+    margin: auto;
   }
   #tourdatescontainer{
     /*background: pink;*/
     width: 100%;
-    height: 820px;
     padding-top: 10px;
     text-align: center;
   }
   #tourdaterow{
     background-color: skyblue;
-    width: 80%;
+    width: 90%;
     height: 80px;
     margin: auto;
     margin-top: 10px;
@@ -305,6 +353,28 @@ a:hover{
   }
   #contactinfo{
     font-size: 1.5em;
+    font-weight: bold;
+  }
+  #break1{
+    height:50px;
+  }
+  #break2{
+    height: 600px;
+  }
+  #break3{
+    height: 650px;
+  }
+  #break4{
+    height: 700px;
+  }
+  #break5{
+    height: 300px;
+  }
+  #break6{
+    height: 50px;
+  }
+  #break7{
+    height: 300px;
   }
   .tourdate{
     width: 250px;
@@ -345,6 +415,11 @@ a:hover{
     font-weight: bold;
     /*text-align: center;*/
   }
+  .formdescription{
+    height:16px;
+    color:#7EA9D8;
+    margin-top:12px;
+  }
   a:hover{
     color: dodgerblue;
     transition: 0.3s;
@@ -354,6 +429,8 @@ a:hover{
     padding:inherit;
     text-align: center;
     line-height: 48px;
+    font-weight: bold;
+    font-style: oblique;
   }
   .input{
     outline: none;

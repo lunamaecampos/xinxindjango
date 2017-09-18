@@ -4,12 +4,19 @@
     <meta charset="utf-8">
     {% load static %}
     <style>
-      html {
-        background-image: url('{% static "login_app/images/xinxinbackground.gif"%}');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        background-attachment: fixed;
+      @media all and (min-width: 800px){
+        body {
+          background-image: url('{% static "login_app/images/xinxinbackground.gif"%}');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          background-attachment: fixed;
+        }
+      }
+      @media all and (max-width: 799px){
+        body {
+          background-color: navajowhite;
+        }
       }
     </style>
     {% load staticfiles %}
@@ -20,6 +27,7 @@
   </head>
   <body>
     <div id="wrapper">
+      <div id="break1"></div>
       <div id="landingwrapper"><h1 id="title">X I N X I N</h1>
         <div id="socialmediamenu">
           <a href="https://www.instagram.com/xinxinplanet/"><img src="{% static 'login_app/images/drawninstagram.png' %}" class="socialmediaasset" alt="instagram"></a>
@@ -28,17 +36,20 @@
           <a href="https://www.facebook.com/xinxinplanet/"><img src="{% static 'login_app/images/drawnfacebook.png' %}" class="socialmediaasset" alt="facebook"></a>
         </div>
       </div>
+      <div id="break2"></div>
       <div id="bandcampplayer">
         <iframe class="bandcamp" style="border: 0; width: 640px; height: 840px;" src="https://bandcamp.com/EmbeddedPlayer/album=3803056331/size=large/bgcol=ffffff/linkcol=f171a2/transparent=true/" seamless>
           <a href="http://xinxin.bandcamp.com/album/blue-flowers">blue flowers by XINXIN</a>
         </iframe>
       </div>
-      <div id="mobilebandcampplayer" style="width:100%;">
+      <div id="mobilebandcampplayer">
         <iframe style="border: 0; width: 90%; height: 120px; margin-left: 5%;" src="https://bandcamp.com/EmbeddedPlayer/album=3803056331/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless>
           <a href="http://xinxin.bandcamp.com/album/blue-flowers">blue flowers by XINXIN</a>
         </iframe>
       </div>
+      <div id="break7"></div>
       <div id="video"><iframe class="video" src="https://www.youtube.com/embed/ZQ6OyIGMHvY?ecver=2" frameborder="0"></iframe></div>
+      <div id="break3"></div>
       <div id="tourdatescontainer">
         <div id="formcontainer">
           <div id="formcontainer">
@@ -50,23 +61,23 @@
               {% for message in messages %}
                 <p>{{message.message}}</p>
               {% endfor %}
-              <div class="formdescription" style="height:16px; color:#7EA9D8; margin-top:12px;">F I R S T ~ N A M E :</div>
+              <div class="formdescription">F I R S T ~ N A M E :</div>
               <input type="text" name="FNAME" class="" id="mce-FNAME" placeholder="..." class="input">
-              <div class="formdescription" style="height:16px; color:#7EA9D8; margin-top:12px;">L A S T ~ N A M E :</div>
+              <div class="formdescription">L A S T ~ N A M E :</div>
               <input type="text" name="LNAME" class="" id="mce-LNAME" placeholder="..." class="input">
-              <div class="formdescription" style="height:16px; color:#7EA9D8; margin-top:12px;">Y O R ~ E M A I L :</div>
+              <div class="formdescription">Y O R ~ E M A I L :</div>
               <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="example@email.com" class="input">
               <div id="mce-responses" class="clear">
                 <div class="response" id="mce-error-response" style="display:none"></div>
                 <div class="response" id="mce-success-response" style="display:none"></div>
               </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                 <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6b824a579fecc455a08cb7f14_8304809601" tabindex="-1" value=""></div>
-                <div class="formdescription" style="height:16px; color:#7EA9D8; margin-top:12px;"><input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button"value="Sign me upp!!!" class="button"></div>
+                <div class="formdescription"><input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button"value="Sign me upp!!!" class="button"></div>
               <div class="medium" style="margin-top:20px;">ヾ(⌐■_■)ノ♪</div>
             </form>
           </div>
         </div>
-        <div class="break" style="height:50px;"></div>
+        <div id="break4"></div>
         <span class="medium">Up N' Comin' Shows...</span>
         {%if tourdateall %}
           {%for t in tourdateall %}
@@ -78,11 +89,11 @@
           </div>
           {% endfor %}
         {% endif %}
-          <div class="break" style="height:100px;"></div>
+          <div id="break5"></div>
           <div id="contactinfo">
             For Press/Bookings please email us at XINXINPLANET@GMAIL.COM
           </div>
-          <div class="break" style="height:50px;"></div>
+          <div id="break6"></div>
       </div>
     </div>
     <script type="text/javascript" src="{% static 'login_app/javascript/index.js' %}">
